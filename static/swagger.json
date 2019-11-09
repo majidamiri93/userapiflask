@@ -38,7 +38,7 @@
             "description": "Username, password or email is wrong"
 
           },
-          "ALREADY_EXIST": {
+          "409": {
             "description": "User Already exists"
 
           },

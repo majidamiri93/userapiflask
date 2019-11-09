@@ -6,7 +6,7 @@ from api.config.routes import generate_routes
 from api.database.database import db
 from flask_swagger_ui import get_swaggerui_blueprint
 from api.models.models import User
-
+from flask_migrate import Migrate
 
 def create_app():
     app = Flask(__name__)
@@ -35,13 +35,11 @@ def create_app():
 if __name__ == '__main__':
     app = create_app()
     db.create_all()
-
+    print('aaaaaaaa')
 
     # Run app.
     @app.route('/')
     def hello_world():
-        #peter = User.query.filter_by(username='majid2').first()
-        #print(peter.username)
         print('asd')
 
 
