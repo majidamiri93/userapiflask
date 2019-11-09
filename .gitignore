@@ -1,0 +1,40 @@
+# Django #
+fancylib/settings.py
+
+*.swp
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
+
+# Backup files #
+*.bak
+
+# If you are using PyCharm #
+.idea/
+*.iws /out/
+
+# Python #
+*.py[cod]
+*$py.class
+
+
+# pyenv
+.python-version
+
+# celery
+celerybeat-schedule.*
+
+
+
+
+
+
+
+
+
+
+
+
