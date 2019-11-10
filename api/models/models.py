@@ -23,8 +23,6 @@ class User(db.Model):
     @auth.verify_token
     def verify_auth_token(token):
         g.user = None
-
-
         try:
             data = jwt.loads(token)
         except:

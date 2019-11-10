@@ -6,7 +6,6 @@ from datetime import datetime
 import json
 from flask import g, request
 from flask_restful import Resource
-
 import api.error.errors as error
 from api.database.database import db
 from api.models.models import User, Blacklist
