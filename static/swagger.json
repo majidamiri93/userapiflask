@@ -1,0 +1,53 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "User Api",
+    "version": "1.0.0",
+    "title": "Flask",
+    "contact": {
+      "email": "m.amiri@jaaar.org"
+    }
+  },
+  "tags": [
+    {
+      "name": "Register User",
+      "description": "Example API for register user"
+    }
+  ],
+    "paths": {
+    "/app/auth/register": {
+      "post": {
+        "tags": [
+          "Register User"
+        ],
+        "requestBody": {
+          "description": "{\"username\":\"majid2\",\"password\":\"123\",\"email\":\"mj2@yahoo.com\"}",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": ""
+              }
+            }
+          }
+        },
+
+        "summary": "Returns registration completed if success",
+        "responses": {
+          "422": {
+            "description": "Username, password or email is wrong"
+
+          },
+          "409": {
+            "description": "User Already exists"
+
+          },
+          "200": {
+            "description": "registration completed"
+
+          }
+        }
+      }
+    }
+  }
+}
