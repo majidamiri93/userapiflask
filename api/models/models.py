@@ -1,13 +1,13 @@
-#!/usr/bin/python
+
 
 from datetime import datetime
 from api.database.database import db
 from api.config.auth import auth, jwt
 from flask import g
-
+from http import HTTPStatus
 
 class User(db.Model):
-    # __tablename__ = 'users'
+    __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(length=80))
     password = db.Column(db.String(length=80))
@@ -26,21 +26,28 @@ class User(db.Model):
         try:
             data = jwt.loads(token)
         except:
-            return False
+            message = {
+                'status': HTTPStatus.BAD_REQUEST,
+                'message': 'token is invalid',
+            }
+            return message
         if 'email' and 'admin' in data:
-
             g.user = data['email']
             g.admin = data['admin']
-            print(data)
-        return(data)
-            #return True
-        return False
+            return(data)
+
+        message = {
+            'status': HTTPStatus.BAD_REQUEST,
+            'message': 'token is invalid',
+        }
+        return message
 
 
 class Blacklist(db.Model):
 
-    # __tablename__ = 'Blacklist'
+    __tablename__ = "Blacklist"
     id = db.Column(db.Integer, primary_key=True)
     refresh_token = db.Column(db.String(length=255))
     access_token = db.Column(db.String(length=255))
+    status = db.Column(db.Integer, default=1)
 

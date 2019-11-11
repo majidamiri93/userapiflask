@@ -17,3 +17,5 @@ flask-swagger
 flask_swagger_ui
 flask_migrate
 psycopg2==2.7.6.1
+python-dotenv
+nose

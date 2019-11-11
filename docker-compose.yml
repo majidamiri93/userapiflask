@@ -6,6 +6,8 @@ services:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=123
             - POSTGRES_DATABASE=postgres
+        ports:
+            - "5432"
     web:
         build: .
         ports:
